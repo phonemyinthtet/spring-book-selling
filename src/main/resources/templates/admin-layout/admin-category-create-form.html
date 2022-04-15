@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layout/admin-panel :: admin(~{::main})}" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<body>
+      <main role="main">
+          <div class="container p-3">
+            <h2 class="text-center mt-3">Category Form </h2>
+            <form th:object="${category}" th:action="@{/admin/category/create}" method="post">
+                <div class="form-group row mt-3">
+                  <label for="category-name" class="col-md-6 text-center mt-3"><strong>CATEGORY NAME : </strong></label>
+                  <input type="text" class="form-control col-md-6" id="category-name" th:field="*{name}">
+                    <small th:if="${#fields.errors('name')}"
+                           class="text-danger" th:errors="*{name}"></small>
+                </div>
+
+              <input type="submit" class="btn btn-outline-success col-md-12 mt-3" value="Save Category">
+
+            </form>
+          </div>
+      </main>
+</body>
+</html>

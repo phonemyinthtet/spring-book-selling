@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layout/user-layout :: layout(~{::main})}" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+
+<body>
+   <main role="main">
+      <form class="form-inline container mt-3 row justify-content-center">
+         <div class="col-md-2"></div>
+         <input class="form-control col-md-8" type="search" placeholder="Search">
+         <div class="col-md-1"></div>
+         <button class="btn btn-outline-warning  col-md-1 rounded" type="submit">Search</button>
+      </form>
+      <h3 style="text-align: center; margin-top: 10px">Rate Five Book</h3>
+      <hr>
+      <div class="container-fluid row justify-content-around">
+
+            <div class="card-deck mt-3 col-md-3" th:each="book :${ratefive}">
+               <div class="card">
+                  <img class="card-img-top"  src="/images/shopping.png" th:src="@{/images/shopping.png}" alt="Card image cap">
+                  <div class="card-body">
+                     <!--<h5 class="card-title" th:text="${book.book.name}"></h5>-->
+                     <p class="card-text" th:text="${book.price}"></p>
+                     <p class="card-text"><small class="text-muted" th:text="${book.quantity}"></small></p>
+                     <a href="#" class="btn btn-outline-primary" th:href="@{'/book-detail/'+${book.id}}">Buy</a>
+
+                  </div>
+               </div>
+            </div>
+
+      </div>
+
+      <h3 style="text-align: center; margin-top: 10px">Rate Four Book</h3>
+         <hr>
+      <div class="container-fluid row justify-content-around">
+         <div class="card-deck mt-3 col-md-3" th:each="book :${ratefour}">
+            <div class="card">
+               <img class="card-img-top"  src="/images/shopping.png" th:src="@{/images/shopping.png}" alt="Card image cap">
+               <div class="card-body">
+              <!--    <h5 class="card-title" th:text="${book.book.name}"></h5>-->
+                  <p class="card-text" th:text="${book.price}"></p>
+                  <p class="card-text"><small class="text-muted" th:text="${book.quantity}"></small></p>
+                  <a href="#" class="btn btn-outline-primary" th:href="@{'/book-detail/'+${book.id}}">Buy</a>
+
+               </div>
+            </div>
+         </div>
+      </div>
+      <h3 style="text-align: center; margin-top: 10px">Other Book</h3>
+         <hr>
+      <div class="container-fluid row justify-content-around">
+         <div class="card-deck mt-3 col-md-3" th:each="book :${rateother}">
+            <div class="card">
+               <img class="card-img-top"  src="/images/shopping.png" th:src="@{/images/shopping.png}" alt="Card image cap">
+               <div class="card-body">
+                  <!--<h5 class="card-title" th:text="${book.book.name}"></h5>-->
+                  <p class="card-text" th:text="${book.price}"></p>
+                  <p class="card-text"><small class="text-muted" th:text="${book.quantity}"></small></p>
+                  <a href="#" class="btn btn-outline-primary" th:href="@{'/book-detail/'+${book.id}}">Buy</a>
+
+               </div>
+            </div>
+         </div>
+      </div>
+
+   </main>
+</body>
+</html>

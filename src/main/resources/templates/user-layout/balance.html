@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layout/user-layout :: layout(~{::main})}" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<body>
+  <main role="main">
+    <div class="container">
+
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="pro :${carts}">
+          <td th:text="${pro.bookDetail.book.name}"></td>
+          <td th:text="${pro.bookDetail.price}"></td>
+          <td th:text="${pro.quantity}"></td>
+        </tr>
+
+        </tbody>
+      </table>
+      <h3 th:text="${'Total: ' + total}"></h3>
+    </div>
+  </main>
+</body>
+</html>

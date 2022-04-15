@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="layout(content)" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+>
+
+<body>
+<div th:fragment="navigation">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#"><i class="fa-solid fa-book-open-reader"></i>TEP Book Shop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" th:href="@{/home}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item"  sec:authorize="isAuthenticated()">
+                    <a class="nav-link" th:href="@{/sell-book}">Buy Book</a>
+                </li>
+                <li class="nav-item" sec:authorize="isAnonymous()">
+                    <a class="nav-link" th:href="@{/loginForm}">Buy Book</a>
+                </li>
+                <li class="nav-item"  sec:authorize="isAuthenticated()">
+                    <a class="nav-link" th:href="@{/adminOne}">Rent Book</a>
+                </li>
+                <li class="nav-item" sec:authorize="isAnonymous()">
+                    <a class="nav-link" th:href="@{/loginForm}">Rent Book</a>
+                </li>
+                <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
+                    <a class="nav-link" href="#" th:href="@{/adminOne}">Admin Panel</a>
+                </li>
+
+            </ul>
+            <div class="my-2 my-lg-0 p-2">
+                <ul class="navbar-nav mr-auto">
+
+                    <li class="nav-item"  sec:authorize="isAuthenticated()">
+                        <a class="nav-link"><i class="fa-solid fa-user-large"></i></a>
+                    </li>
+                    <li class="nav-item"  sec:authorize="isAuthenticated()">
+                        <a class="nav-link" th:href="@{/cart}"><i class="fa-solid fa-cart-shopping"></i>Cart</a>
+                    </li>
+                    <li class="nav-item"  sec:authorize="isAuthenticated()">
+                        <a class="nav-link" th:href="@{/logout}"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+                    </li>
+                    <li class="nav-item" sec:authorize="isAnonymous()">
+                        <a class="nav-link" th:href="@{/loginForm}">Log In</a>
+                    </li>
+
+
+                </ul>
+
+        </div>
+        </div>
+    </nav>
+</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layout/admin-panel :: admin(~{::main})}" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+
+<body>
+        <main role="main">
+                <table class="table table-striped table-dark">
+                        <h3>Author List :</h3>
+                        <h5 class="mt-2">Delete All :<a href="" th:href="@{/admin/author/delete-all}"><h3 class="d-inline ml-2"><i class="fa-solid fa-trash"></i></h3></a></h5>
+                        <h5 class="mt-2">Create New :<a href="" th:href="@{/admin/author}"><h3 class="d-inline ml-2"><i class="fa-solid fa-plus"></i></h3></a></h5>
+
+                        <thead>
+                        <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Author Name</th>
+
+                                <th scope="col">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="author :${authors}">
+                                <th scope="row" th:text="${author.id}"></th>
+                                <td th:text="${author.name}"></td>
+                                <td class="row">
+                                        <a href="" class="btn btn-outline-danger mr-1" th:href="@{'/admin/author/delete/'+${author.id}}">Delete</a>
+                                        <a href="" class="btn btn-outline-primary">Update</a>
+                                </td>
+                        </tr>
+                        <tr>
+
+                        </tbody>
+                </table>
+        </main>
+</body>
+</html>

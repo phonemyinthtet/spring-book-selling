@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="admin(content)" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<body>
+<div th:fragment="navigation">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+
+      <h2>BOOK STORE ADMIN</h2>
+      <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-align-justify"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#" th:href="@{/}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Sell Book</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Rent Book</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layout/user-layout :: layout(~{::main})}" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<body>
+    <main role="main">
+      <div class="container">
+        <form th:action="@{/cart/calculate}" th:object="${cartItemDetail}" method="post">
+            <span th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}" class="alert-danger"></span>
+
+            <table class="table">
+              <thead class="thead-dark">
+              <tr>
+
+                <th scope="col">BookName</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Pirce</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr th:each="book : ${books}">
+                <td th:text="${book.book.name}"></td>
+                <td><input type="text" th:field="*{quantity}" class="form-control"></td>
+
+                <td th:text="${book.price}"></td>
+              </tr>
+
+              </tbody>
+            </table>
+
+
+            <div class="row ml-1">
+              <a href="" class="btn btn-primary p-2 mr-1" th:href="@{/cart}">Back To Cart</a>
+              <button type="submit" class="btn btn-primary p-2 ">Payment</button>
+            </div>
+
+
+          </form>
+
+      </div>
+    </main>
+</body>
+</html>

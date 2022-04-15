@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layout/user-layout :: layout(~{::main})}" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<style>
+    .price{
+        color: yellow;
+        font-size: 26px;
+        font-weight: bold;
+        padding-top: 20px;
+    }
+    input{
+        border: 1px solid #ccc;
+        font-weight: bold;
+        height: 33px;
+        text-align: center;
+        width: 30px;
+    }
+</style>
+<body>
+        <main role="main">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-7">
+                        <p class="newarriveal text-center">New</p>
+                        <h2 th:text="${book.book.name}"></h2>
+                        <p>Book Code: </p>
+                        <p class="price" th:text="${book.price}"></p>
+                        <p><b>Availability:</b></p>
+                        <p><b>Condition:</b></p>
+                        <p><b>Brand:</b></p>
+                        <label>Quantity: (<span th:text="${book.quantity}"></span>)</label>
+                      <!--  <input type="text" value="1" >-->
+                        <div class="row">
+                         <a href="" class="btn btn-outline-primary mr-2" >Shop Back</a>
+                            <a href="" class="btn btn-outline-primary" th:href="@{'/cart/add/'+${book.id}}">Add To Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+</body>
+</html>

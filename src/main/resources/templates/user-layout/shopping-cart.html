@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layout/user-layout :: layout(~{::main})}" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+
+<body>
+    <main role="main">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Order ID</th>
+                <th scope="col">Book Name</th>
+                <th scope="col">Stock Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="cart:${cartitems}">
+                <th scope="row" th:text="${cart.id}"></th>
+                <td th:text="${cart.book.name}"></td>
+                <td th:text="${cart.quantity}"></td>
+                <td th:text="${cart.price}"></td>
+                <td><a href="">Cancel</a></td>
+            </tr>
+
+            </tbody>
+        </table>
+        <a class="btn btn-outline-primary">Cancel All Book</a>
+        <a class="btn btn-outline-primary" th:href="@{/cart/checkoutview}">Check Out</a>
+    </main>
+</body>
+</html>

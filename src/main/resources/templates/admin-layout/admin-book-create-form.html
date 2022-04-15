@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layout/admin-panel :: admin(~{::main})}" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+
+<body>
+      <main role="main">
+          <div class="container">
+
+            <h2 class="text-center mt-3">Book Form </h2>
+            <form th:action="@{/admin/book/create}" th:object="${book}" method="post">
+              <div class="form-group row mt-3">
+                <label for="bookname" class="col-md-6 text-center mt-3"><strong>Book NAME :</strong></label>
+                <input type="text" class="form-control col-md-6" id="bookname" th:field="*{name}">
+
+              </div>
+              <div class="form-group row mt-3">
+                <label for="category" class="col-md-6 text-center mt-3"><strong>Category Name:</strong></label>
+                <select class="form-select col-md-6" aria-label="Default select example" th:field="*{category.id}" id="category">
+                  <option th:each="category : ${categorys}" th:value="${category.id}" th:text="${category.name}" value=""></option>
+                </select>
+              </div>
+              <div class="form-group row mt-3">
+                <label for="author" class="col-md-6 text-center mt-3"><strong>Author Name:</strong></label>
+                <select class="form-select col-md-6" aria-label="Default select example" th:field="*{category.id}" id="author">
+                  <option th:each="author : ${authors}" th:value="${author.id}" th:text="${author.name}" value=""></option>
+                </select>
+              </div>
+              <div class="form-group row mt-3">
+                <label for="book-rate" class="col-md-6 text-center mt-3"><strong>Book RATE :</strong></label>
+                <select class="form-select col-md-6" aria-label="Default select example" th:field="*{rate}" id="book-rate">
+                  <option th:value="${1}" th:text="${1}" value="1">One</option>
+                  <option th:value="${2}" th:text="${2}" value="2">Two</option>
+                  <option th:value="${3}" th:text="${3}" value="3">Three</option>
+                  <option th:value="${4}" th:text="${4}" value="4">Four</option>
+                  <option th:value="${5}" th:text="${5}" value="5">Five</option>
+                </select>
+                </div>
+
+
+              <input type="submit" class="btn btn-outline-success col-md-12 mt-3" value="Save Book">
+
+            </form>
+
+          </div>
+      </main>
+</body>
+</html>
